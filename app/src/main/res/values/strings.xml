@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PrimerParcialLaboV</string>
+    <string name="cantidad">Cantidad:</string>
+    <string name="precioUnidad">Precio unidad:</string>
+    <string name="precio">Precio:</string>
+    <string name="nombreProducto">Nombre del producto</string>
+    <string name="btnEditar">Editar</string>
 </resources>
