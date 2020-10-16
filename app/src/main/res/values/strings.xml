@@ -5,4 +5,17 @@
     <string name="precio">Precio:</string>
     <string name="nombreProducto">Nombre del producto</string>
     <string name="btnEditar">Editar</string>
+    <string name="p1">Arroz</string>
+    <string name="p2">Manteca</string>
+    <string name="p3">Aceite</string>
+    <string name="p4">Mayonesa</string>
+    <string name="p5">Harina</string>
+    <string name="p6">Queso</string>
+    <string name="p7">Mostaza</string>
+    <string name="p8">Gaseosa</string>
+    <string name="p9">Cerveza</string>
+    <string name="p10">Vino tinto</string>
+    <string name="p11">Vino blanco</string>
+    <string name="p12">Azúcar</string>
+
 </resources>

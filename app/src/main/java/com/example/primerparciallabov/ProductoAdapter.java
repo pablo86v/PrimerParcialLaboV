@@ -29,6 +29,7 @@ public class ProductoAdapter extends RecyclerView.Adapter<ProductoViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ProductoViewHolder holder, int position) {
         ProductoModel p = productos.get(position);
+        holder.position = position;
         holder.producto = p;
         holder.tvNombreProducto.setText(p.getNombreProducto());
         holder.tvCantidad.setText(Integer.toString(p.getCantidad()));

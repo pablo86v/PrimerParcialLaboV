@@ -10,7 +10,7 @@ public class ProductoViewHolder extends RecyclerView.ViewHolder {
     public TextView tvPrecioUnidad;
     private MainActivity mainActivity;
     public ProductoModel producto;
-
+    public int position;
 
     public ProductoViewHolder(@NonNull View itemView, MainActivity mainActivity) {
         super(itemView);

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,21 +33,21 @@ public class MainActivity extends AppCompatActivity {
         // Vinculo mi adapater con mi RecyclerView
         productoAdapter = new ProductoAdapter(this.productos, this);
         rv.setAdapter(productoAdapter);
-    }
+
+   }
 
     private void loadTestList(List<ProductoModel> productos){
-        if(Locale.getDefault().toString().equals("es_ES")) {
-            productos.add(new ProductoModel(17, 530, "Arroz"));
-            productos.add(new ProductoModel(16, 554, "Fideos"));
-            productos.add(new ProductoModel(51, 455, "Manteca"));
-            productos.add(new ProductoModel(15, 545, "Aceite"));
-            productos.add(new ProductoModel(31, 545, "Gaseosa"));
-        }else {
-            productos.add(new ProductoModel(17, 530, "Rice"));
-            productos.add(new ProductoModel(16, 554, "Noodles"));
-            productos.add(new ProductoModel(51, 455, "Butter"));
-            productos.add(new ProductoModel(15, 545, "Oil"));
-            productos.add(new ProductoModel(31, 545, "Soda"));
-        }
+        productos.add(new ProductoModel(17, 530, getString(R.string.p1)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p2)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p3)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p4)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p5)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p6)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p7)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p8)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p9)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p10)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p11)));
+        productos.add(new ProductoModel(17, 530, getString(R.string.p12)));
     }
 }
