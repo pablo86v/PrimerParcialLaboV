@@ -36,6 +36,25 @@ public class MainActivity extends AppCompatActivity {
 
    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 1) {
+            if(resultCode == DetailActivity.RESULT_OK){
+                ProductoModel p ;
+                Bundle b = data.getExtras();
+                p  = (ProductoModel) b.getSerializable("ProductoModel");
+                updateList(b.getInt("position"),p);
+            }
+        }
+    }//onActivityResult
+
+   public void updateList(int position, ProductoModel producto){
+       this.productos.set(position, producto);
+       this.productoAdapter.notifyDataSetChanged();
+   }
+
     private void loadTestList(List<ProductoModel> productos){
         productos.add(new ProductoModel(17, 530, getString(R.string.p1)));
         productos.add(new ProductoModel(17, 530, getString(R.string.p2)));

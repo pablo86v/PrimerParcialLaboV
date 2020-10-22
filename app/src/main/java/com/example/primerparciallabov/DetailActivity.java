@@ -13,10 +13,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DetailActivity extends AppCompatActivity {
-    ProductoModel producto = new ProductoModel();
+
     EditText evNombre ;
     EditText evCantidad;
     EditText evPrecio;
+    Bundle b;
+    ProductoModel p;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -28,36 +31,33 @@ public class DetailActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
 
         Intent i = getIntent();
-        Bundle b = i.getExtras();
-
-        /*
-        producto.setCantidad(b.getInt("cantidad"));
-        producto.setPrecioUnidad(b.getInt("precioUnidad"));
-        producto.setNombreProducto(b.getString("nombreProducto"));
-        */
-
+        b = i.getExtras();
+        p  = (ProductoModel) b.getSerializable("ProductoModel");
 
         evNombre = (EditText)super.findViewById(R.id.evNombre);
-        evNombre.setText(producto.getNombreProducto());
-
         evCantidad = (EditText)super.findViewById(R.id.evCantidad);
-        evCantidad.setText(String.valueOf(producto.getCantidad()));
-
         evPrecio = (EditText)super.findViewById(R.id.evPrecio);
-        evPrecio.setText(String.valueOf(producto.getPrecioUnidad()));
+
+        evNombre.setText(p.getNombreProducto());
+        evCantidad.setText(String.valueOf(p.getCantidad()));
+        evPrecio.setText(String.valueOf(p.getPrecioUnidad()));
 
         Button btnEditar = (Button)super.findViewById(R.id.btnEditar);
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-              /*  producto.setNombreProducto(evNombre.getText());
-                producto.setCantidad(Integer.valueOf(evCantidad.getText());
-                producto.setNombreProducto(Integer.valueOf(evPrecio.getText());
-                
-               */
+                p.setNombreProducto(evNombre.getText().toString());
+                p.setCantidad(Integer.valueOf(evCantidad.getText().toString()));
+                p.setPrecioUnidad(Integer.valueOf(evPrecio.getText().toString()));
+
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("position",b.getInt("position"));
+                returnIntent.putExtra("ProductoModel", p);
+
+                setResult(DetailActivity.RESULT_OK,returnIntent);
+                finish();
             }
         });
-
     }
 
     @Override

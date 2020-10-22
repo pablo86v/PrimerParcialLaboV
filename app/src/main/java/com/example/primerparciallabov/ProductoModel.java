@@ -1,8 +1,9 @@
 package com.example.primerparciallabov;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class ProductoModel {
+public class ProductoModel implements Serializable {
     private int cantidad;
     private int precioUnidad;
     private String nombreProducto;

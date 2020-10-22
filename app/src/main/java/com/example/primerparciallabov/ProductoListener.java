@@ -5,6 +5,8 @@ import android.os.ProxyFileDescriptorCallback;
 import android.util.Log;
 import android.view.View;
 
+import java.io.Serializable;
+
 public class ProductoListener implements View.OnClickListener {
 
     private MainActivity mainActivity;
@@ -15,19 +17,17 @@ public class ProductoListener implements View.OnClickListener {
         this.productoViewHolder = productoViewHolder;
     }
 
+    public ProductoListener() {
+    }
+
     @Override
     public void onClick(View view) {
+            ProductoModel p = this.productoViewHolder.producto;
+            Intent i = new Intent(this.mainActivity, DetailActivity.class);
+            i.putExtra("position", this.productoViewHolder.position);
+            i.putExtra("ProductoModel", p);
 
-        ProductoModel p = this.productoViewHolder.producto;
-
-        Intent i = new Intent(this.mainActivity, DetailActivity.class);
-        i.putExtra("position", this.productoViewHolder.position);
-        i.putExtra("cantidad", p.getCantidad());
-        i.putExtra("precioUnidad", p.getPrecioUnidad());
-        i.putExtra("nombreProducto", p.getNombreProducto());
-
-
-        this.mainActivity.startActivity(i);
+            mainActivity.startActivityForResult(i,1);
     }
 }
 
